@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+<form action="" method="POST">
+        {% csrf_token %}
+        <h2>{{data.first_name}}</h2>
+        <h2>{{data.age}}</h2>
+        <h2>{{data.email}}</h2>
+  <input type="submit" value="Delete">
+
+</form>
+
+{% endblock %}
