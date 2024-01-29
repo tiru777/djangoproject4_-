@@ -206,16 +206,25 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url 'list' %}">List</a></li>
       <li><a href="{% url 'create' %}">Create</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Signup</a></li>
+        {% endif %}
       </ul>
     </div>
   </div>
 </nav>
 
+
 <div class="jumbotron text-center">
+  {% if user.is_authenticated %}
   <h1>Django Website CRUD Class Based View & ORM</h1>
   <p>Template tags is used to display data</p>
+  {% else %}
+  <h1>Please Login</h1>
+  {% endif %}
 
 </div>
 
